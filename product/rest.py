@@ -4,7 +4,7 @@ from flask_restful import Resource, Api
 app = Flask(__name__)
 api = Api(app)
 
-class Product(resource):
+class Product(Resource):
     def get(self):
         return {
             'product' : ['shoes', 'bag', 'shirt']
@@ -14,4 +14,3 @@ class Product(resource):
 api.add_resource(Product, '/')
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
-    
