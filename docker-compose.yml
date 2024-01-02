@@ -7,5 +7,12 @@ services:
       - ./product:/usr/src/app
     ports: 
       - 5001:80 #5001 externally, 80 within container (from rest.py)
-
-
+  
+  website:
+    image: php:apache
+    volumes:
+      - ./website:/var/www/html
+    ports: 
+      - 5002:80
+    depends_on:
+      - product-service
